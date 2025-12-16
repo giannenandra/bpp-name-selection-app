@@ -1,1 +1,0 @@
-# bpp-name-selection-app
