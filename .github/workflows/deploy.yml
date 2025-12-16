@@ -9,6 +9,13 @@ on:
       - main
   workflow_dispatch: # Allow manual trigger
 
+# Required permissions for security scanning
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  pull-requests: write
+
 env:
   AWS_REGION: eu-west-2
   TF_VERSION: 1.9.0
