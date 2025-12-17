@@ -147,6 +147,7 @@ jobs:
 
       - name: Comment with Deployment Info
         uses: actions/github-script@v7
+        continue-on-error: true  # Add this line!
         with:
           script: |
             const output = `### ✅ Deployment Successful!
