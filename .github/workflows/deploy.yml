@@ -145,27 +145,6 @@ jobs:
           echo "Testing application at ${{ steps.outputs.outputs.url }}"
           curl -f -s -o /dev/null -w "%{http_code}" ${{ steps.outputs.outputs.url }} || echo "Application not ready yet"
 
-      - name: Comment with Deployment Info
-        uses: actions/github-script@v7
-        continue-on-error: true  # Add this line!
-        with:
-          script: |
-            const output = `### ✅ Deployment Successful!
-            
-            **Application URL:** ${{ steps.outputs.outputs.url }}
-            **Public IP:** ${{ steps.outputs.outputs.ip }}
-            
-            The application has been deployed to AWS.
-            
-            *Deployed by: @${{ github.actor }}*`;
-
-            github.rest.repos.createCommitComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              commit_sha: context.sha,
-              body: output
-            })
-
   # Job 3: Security Scanning (best practice)
   security-scan:
     name: Security Scan
