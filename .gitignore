@@ -1,0 +1,8 @@
+*.env
+*.tfstate
+*.tfstate*
+*.tfvars
+.idea/
+.vscode/
+**/.terraform/*
+*.terraform.lock.hcl*
